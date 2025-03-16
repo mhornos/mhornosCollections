@@ -8,9 +8,10 @@ public class Alimentacio extends Producte {
     LocalDate dataCaducitat;
 
     //constructor
-    public Alimentacio(String nom, float preu, String codiDeBarres, LocalDate dataCaducitat) {
+    public Alimentacio(String nom, float preu, String codiDeBarres, LocalDate dataCaducitat) throws ExcepcionsPersonalitzades.DataCaducitatException {
         super(nom, preu, codiDeBarres);
-        this.dataCaducitat = dataCaducitat;
+        setDataCaducitat(dataCaducitat);
+
     }
 
     //getters y setters

@@ -1,4 +1,5 @@
 import controlador.CarroCompraControlador;
+import excepcions.ExcepcionsPersonalitzades;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,7 +8,7 @@ public class Main {
     static final Scanner scan = new Scanner(System.in);
     static final CarroCompraControlador controlador = new CarroCompraControlador();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExcepcionsPersonalitzades.DataCaducitatException {
         int opcio = 99;
 
         System.out.println("\nBENVINGUT AL SAPAMERCAT");
@@ -18,6 +19,7 @@ public class Main {
             System.out.println("1) Introduir producte");
             System.out.println("2) Passar per caixa");
             System.out.println("3) Mostrar carret de compra");
+            System.out.println("4) Cercar producte per codi de barres");
             System.out.println("0) Acabar ");
             System.out.print("Escull una opció: ");
 
@@ -36,6 +38,9 @@ public class Main {
                     break;
                 case 3:
                     controlador.mostrarCarro();
+                    break;
+                case 4:
+                    controlador.mostrarNomProducte();
                     break;
                 case 0:
                     System.exit(0);

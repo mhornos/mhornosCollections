@@ -19,7 +19,10 @@ public abstract class Producte implements Comparable<Producte>{
         return nom;
     }
 
-    public void setNom(String nom) {
+    public void setNom(String nom) throws ExcepcionsPersonalitzades.LimitCaracteresException {
+        if (nom.length() > 20) {
+            throw new ExcepcionsPersonalitzades.LimitCaracteresException();
+        }
         this.nom = nom;
     }
 

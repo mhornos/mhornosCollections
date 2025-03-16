@@ -1,5 +1,6 @@
 package controlador;
 
+import excepcions.ExcepcionsPersonalitzades;
 import excepcions.ExcepcionsPersonalitzades.LimitProductesException;
 import model.*;
 import vista.*;
@@ -22,7 +23,7 @@ public class CarroCompraControlador {
     }
 
     // afegir un producte al carro
-    public void afegirProducte() {
+    public void afegirProducte() throws ExcepcionsPersonalitzades.DataCaducitatException {
         int tipus;
         do {
             System.out.println("\n--------------");
@@ -49,7 +50,7 @@ public class CarroCompraControlador {
         } while (tipus != 0);
     }
 
-    private void demanarDadesProducte(int tipus) {
+    private void demanarDadesProducte(int tipus) throws ExcepcionsPersonalitzades.DataCaducitatException {
         System.out.print("Nom producte: ");
         String nom = scan.nextLine();
 
@@ -108,9 +109,18 @@ public class CarroCompraControlador {
     private LocalDate demanarDataCaducitat() {
         System.out.print("Data de caducitat (dd/mm/aaaa): ");
         try {
-            return LocalDate.parse(scan.nextLine(), dateFormatter);
+            LocalDate dataCaducitat = LocalDate.parse(scan.nextLine(), dateFormatter);
+
+            if (dataCaducitat.isBefore(LocalDate.now())) {
+                throw new ExcepcionsPersonalitzades.DataCaducitatException();
+            }
+
+            return dataCaducitat;
         } catch (DateTimeParseException e) {
-            System.out.println("Error! Format de data incorrecte");
+            System.out.println("Error! Format de data incorrecte.");
+            return null;
+        } catch (ExcepcionsPersonalitzades.DataCaducitatException e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -143,8 +153,15 @@ public class CarroCompraControlador {
         return total;
     }
 
-
     public void buidarCarro() {
         carro = new CarroCompra();
+    }
+
+    //filtrar producte per codi de barres
+    public void mostrarNomProducte() {
+        System.out.print("Introdueix el codi de barres del producte: ");
+        String codi = scan.nextLine();
+        String nomProducte = carro.buscarNomProducte(codi);
+        System.out.println("Resultat: " + nomProducte);
     }
 }

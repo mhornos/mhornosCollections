@@ -39,4 +39,13 @@ public class CarroCompra{
         }
         return productesQuantitats;
     }
+
+    // buscar el nom d'un producte pel seu codi de barres amb streams i lambda
+    public String buscarNomProducte(String codiDeBarres) {
+        return productes.entrySet().stream()
+                .filter(entry -> entry.getKey().equals(codiDeBarres))
+                .map(entry -> entry.getValue().getNom())
+                .findFirst()
+                .orElse("Producte no trobat");
+    }
 }
