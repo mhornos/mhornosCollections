@@ -18,5 +18,5 @@ Per buscar i gestionar productes, faig servir un `map<string, producte>`, on la 
 
 Quan passes per caixa, es genera un tiquet amb tots els productes i el preu total.
 
-He afegit una opció extra al menú (opció 4) per provar el buscador de productes pel codi de barres en el carret.
+### He afegit una opció extra al menú (opció 4) per provar el buscador de productes pel codi de barres en el carret.
 
