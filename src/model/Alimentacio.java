@@ -1,6 +1,6 @@
 package model;
 
-import excepcions.DataCaducitat;
+import excepcions.ExcepcionsPersonalitzades;
 
 import java.time.LocalDate;
 
@@ -18,9 +18,9 @@ public class Alimentacio extends Producte {
         return dataCaducitat;
     }
 
-    public void setDataCaducitat(LocalDate dataCaducitat) throws DataCaducitat {
-        if (dataCaducitat.isBefore(LocalDate.now())){
-            throw new DataCaducitat("La data de caducitat no pot ser anterior a avui");
+    public void setDataCaducitat(LocalDate dataCaducitat) throws ExcepcionsPersonalitzades.DataCaducitatException {
+        if (dataCaducitat.isBefore(LocalDate.now())) {
+            throw new ExcepcionsPersonalitzades.DataCaducitatException();
         }
         this.dataCaducitat = dataCaducitat;
     }

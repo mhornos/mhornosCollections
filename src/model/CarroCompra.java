@@ -1,6 +1,7 @@
 package model;
 
-import excepcions.LimitProductes;
+import excepcions.ExcepcionsPersonalitzades;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,9 +15,9 @@ public class CarroCompra{
     }
 
     //afegir un producte al carro
-    public void afegirProducte (Producte producte) throws LimitProductes {
+    public void afegirProducte (Producte producte) throws ExcepcionsPersonalitzades.LimitProductesException {
         if (productes.size() >= LIMIT_PRODUCTES) {
-            throw new LimitProductes("No es pot afegir mes de " + LIMIT_PRODUCTES + " productes al carro");
+            throw new ExcepcionsPersonalitzades.LimitProductesException();
         }
         if (productes.containsKey(producte.getCodiDeBarres())){
             System.out.println("El producte ja existeix al carro!");
