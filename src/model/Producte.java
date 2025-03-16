@@ -1,5 +1,7 @@
 package model;
 
+import excepcions.Negatiu;
+
 public abstract class Producte implements Comparable<Producte>{
     String nom;
     float preu;
@@ -25,7 +27,10 @@ public abstract class Producte implements Comparable<Producte>{
         return preu;
     }
 
-    public void setPreu(float preu) {
+    public void setPreu(float preu) throws Negatiu{
+        if (preu < 0){
+            throw new Negatiu("El preu no pot ser negatiu");
+        }
         this.preu = preu;
     }
 

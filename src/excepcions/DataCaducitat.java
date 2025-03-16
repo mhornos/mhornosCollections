@@ -1,4 +1,7 @@
 package excepcions;
 
-public class DataCaducitat {
+public class DataCaducitat extends Exception{
+    public DataCaducitat (String missatge){
+        super(missatge);
+    }
 }
