@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CarroCompraVista {
     public static void mostrarCarro(CarroCompra carro) {
-        System.out.println("Carro de la compra:");
+        System.out.println("Carret: ");
 
         //mapa per comptar quantes unitats hi ha de cada producte
         Map<String, Integer> quantitats = new HashMap<>();

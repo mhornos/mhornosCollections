@@ -23,9 +23,8 @@ public class TiquetVista {
             totalCompra += preuTotal;
 
             System.out.println(producte.getNom() + " · qt: " + quantitat + " · " + preuUnitari + "€ · " + preuTotal + "€" );
-            System.out.println("---------------------");
         }
-
+        System.out.println("---------------------");
         System.out.println("Total: " + totalCompra + "€");
     }
 }

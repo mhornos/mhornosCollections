@@ -31,5 +31,12 @@ public class CarroCompra{
         return productes;
     }
 
-
+    public Map<String, Integer> getProductesQuantitats() {
+        Map<String, Integer> productesQuantitats = new HashMap<>();
+        for (Producte producte : productes.values()) {
+            String codi = producte.getCodiDeBarres();
+            productesQuantitats.put(codi, productesQuantitats.getOrDefault(codi, 0) + 1);
+        }
+        return productesQuantitats;
+    }
 }
