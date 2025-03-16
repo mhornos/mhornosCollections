@@ -30,6 +30,7 @@ public abstract class Producte implements Comparable<Producte>{
         return preu;
     }
 
+    //comproba que el preu no sigui negatiu
     public void setPreu(float preu) throws ExcepcionsPersonalitzades.NegatiuException {
         if (preu < 0){
             throw new ExcepcionsPersonalitzades.NegatiuException();
@@ -45,9 +46,6 @@ public abstract class Producte implements Comparable<Producte>{
         this.codiDeBarres = codiDeBarres;
     }
 
-    //calcular preu del producte d'alimentacio
-    public abstract float calcularPreu();
-
     //toString
     @Override
     public String toString() {
@@ -59,14 +57,14 @@ public abstract class Producte implements Comparable<Producte>{
     }
 
     @Override
+    //metode d'ordenacio
     public int compareTo(Producte altreProducte) {
-        // Aquí se puede definir cómo comparar productos, por ejemplo, por precio
         if (this.preu < altreProducte.preu) {
-            return -1; // Si el precio del producto actual es menor
+            return -1;
         } else if (this.preu > altreProducte.preu) {
-            return 1; // Si el precio del producto actual es mayor
+            return 1;
         } else {
-            return 0; // Si los precios son iguales
+            return 0;
         }
     }
 }

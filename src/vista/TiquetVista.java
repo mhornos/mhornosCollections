@@ -5,6 +5,7 @@ import model.Producte;
 import java.util.Map;
 
 public class TiquetVista {
+    //funcio que es crida a l'hora de passar per caixa que mostra tots els productes comprats amb la qt, preu i preu total.
     public static void mostrarTiquet(TiquetDeCompra tiquet, Map<String, Producte> productesDetalls) {
         float totalCompra = 0;
 

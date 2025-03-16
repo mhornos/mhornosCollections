@@ -8,7 +8,7 @@ public class Main {
     static final Scanner scan = new Scanner(System.in);
     static final CarroCompraControlador controlador = new CarroCompraControlador();
 
-    public static void main(String[] args) throws ExcepcionsPersonalitzades.DataCaducitatException {
+    public static void main(String[] args) throws ExcepcionsPersonalitzades.DataCaducitatException, ExcepcionsPersonalitzades.NegatiuException {
         int opcio = 99;
 
         System.out.println("\nBENVINGUT AL SAPAMERCAT");

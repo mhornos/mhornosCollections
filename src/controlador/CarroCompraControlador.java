@@ -23,7 +23,7 @@ public class CarroCompraControlador {
     }
 
     // afegir un producte al carro
-    public void afegirProducte() throws ExcepcionsPersonalitzades.DataCaducitatException {
+    public void afegirProducte() throws ExcepcionsPersonalitzades.DataCaducitatException, ExcepcionsPersonalitzades.NegatiuException {
         int tipus;
         do {
             System.out.println("\n--------------");
@@ -50,7 +50,7 @@ public class CarroCompraControlador {
         } while (tipus != 0);
     }
 
-    private void demanarDadesProducte(int tipus) throws ExcepcionsPersonalitzades.DataCaducitatException {
+    private void demanarDadesProducte(int tipus) throws ExcepcionsPersonalitzades.DataCaducitatException, ExcepcionsPersonalitzades.NegatiuException {
         System.out.print("Nom producte: ");
         String nom = scan.nextLine();
 
@@ -96,15 +96,24 @@ public class CarroCompraControlador {
     }
 
     private float demanarPreu() {
-        System.out.print("Preu: ");
-        try {
-            return scan.nextFloat();
-        } catch (InputMismatchException e) {
-            scan.next();
-            System.out.println("Error! Preu incorrecte");
-            return -1;
+        float preu;
+        while (true) {
+            System.out.print("Preu: ");
+            try {
+                preu = scan.nextFloat();
+                if (preu < 0) {
+                    throw new ExcepcionsPersonalitzades.NegatiuException();
+                }
+                return preu;
+            } catch (InputMismatchException e) {
+                scan.next();
+                System.out.println("Error! Preu incorrecte");
+            } catch (ExcepcionsPersonalitzades.NegatiuException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
+
 
     private LocalDate demanarDataCaducitat() {
         System.out.print("Data de caducitat (dd/mm/aaaa): ");

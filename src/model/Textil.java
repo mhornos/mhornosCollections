@@ -18,11 +18,6 @@ public class Textil extends Producte{
         this.composicioTextil = composicioTextil;
     }
 
-    @Override
-    public float calcularPreu() {
-        return preu;
-    }
-
     //compara entre productes textils per la composició
     public int compareTo(Producte altreProducte) {
         if (altreProducte instanceof Textil) {

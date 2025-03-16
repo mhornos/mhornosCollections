@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CarroCompraVista {
+    //funcio que es crida a l'hora de voler veure que portem al carret
     public static void mostrarCarro(CarroCompra carro) {
         System.out.println("Carret: ");
 

@@ -19,7 +19,6 @@ public class Electronica extends Producte{
     }
 
     //calcular preu en funcio dels dies que te de garantia
-    @Override
     public float calcularPreu() {
         float preu = this.getPreu();
         preu += (float) (preu * (diesGarantia / 365) * 0.1);

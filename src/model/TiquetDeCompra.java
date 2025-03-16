@@ -35,8 +35,4 @@ public class TiquetDeCompra {
     public LocalDate getDataCompra() {
         return dataCompra;
     }
-
-    public void setDataCompra(LocalDate dataCompra) {
-        this.dataCompra = dataCompra;
-    }
 }

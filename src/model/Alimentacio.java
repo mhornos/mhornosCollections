@@ -26,15 +26,6 @@ public class Alimentacio extends Producte {
         this.dataCaducitat = dataCaducitat;
     }
 
-    //calcular preu del producte d'alimentacio
-    @Override
-    public float calcularPreu(){
-        LocalDate dataActual = LocalDate.now();
-        int diesFaltants = (int) (dataCaducitat.toEpochDay() - dataActual.toEpochDay());
-
-        return (float) (preu - preu*(1/(diesFaltants+1)) + (preu * 0.1));
-    }
-
     //toString
     @Override
     public String toString() {
